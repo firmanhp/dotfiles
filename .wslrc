@@ -1,4 +1,4 @@
-
+# WSL only
 
 WSL_CONF_FILE="/etc/wsl.conf"
 if [ -f "$WSL_CONF_FILE" ]; then
