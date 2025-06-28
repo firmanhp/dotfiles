@@ -1,15 +1,8 @@
 #!/bin/bash
 
 # --- Configuration ---
-# Define the absolute paths to the original configuration files
-ORIGINAL_FILES=(
-    "$HOME/.zshrc"
-    "$HOME/.byobu/.tmux.conf"
-)
-
-# Define the names of the patched files located in the current directory
-# These names should correspond to the base names of the original files
-PATCHED_FILE_NAMES=(
+# Define the paths to the configuration files
+FILES=(
     ".zshrc"
     ".byobu/.tmux.conf"
 )
@@ -19,7 +12,7 @@ BACKUP_DIR="./backup"
 
 # Get the absolute path of the directory where the script is being executed
 # This ensures symlinks point to an absolute path, making them more robust.
-CURRENT_DIR="$(pwd)"
+CURRENT_DIR=$(dirname "$(realpath $0)")
 
 # --- Script Logic ---
 
@@ -38,11 +31,10 @@ else
 fi
 
 # Loop through each file to backup and symlink
-for i in "${!ORIGINAL_FILES[@]}"; do
-    ORIGINAL_PATH="${ORIGINAL_FILES[$i]}"
-    PATCHED_NAME="${PATCHED_FILE_NAMES[$i]}"
+for i in "${!FILES[@]}"; do
+    ORIGINAL_PATH="$HOME/${FILES[$i]}"
     # Construct the absolute path to the patched file using the current directory
-    PATCHED_PATH="${CURRENT_DIR}/$PATCHED_NAME"
+    PATCHED_PATH="${CURRENT_DIR}/${FILES[$i]}"
 
     echo "" # Newline for readability
 
@@ -70,7 +62,6 @@ for i in "${!ORIGINAL_FILES[@]}"; do
         echo "Original file not found: $ORIGINAL_PATH. Skipping backup for this file."
     fi
 
-    # 4. Create symlink from the patched file (using its absolute path)
     if [ -f "$PATCHED_PATH" ]; then
         echo "  Creating symlink from '$PATCHED_PATH' to '$ORIGINAL_PATH'"
         ln -s "$PATCHED_PATH" "$ORIGINAL_PATH"
