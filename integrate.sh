@@ -5,6 +5,7 @@
 FILES=(
     ".zshrc"
     ".byobu/.tmux.conf"
+    ".wslrc"
 )
 
 # Define the backup directory relative to the current script's location

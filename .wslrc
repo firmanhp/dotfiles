@@ -1,0 +1,8 @@
+
+
+WSL_CONF_FILE="/etc/wsl.conf"
+if [ -f "$WSL_CONF_FILE" ]; then
+    # https://github.com/microsoft/WSL/issues/1890
+    alias code="/mnt/c/Users/FirmanHP/AppData/Local/Programs/'Microsoft VS Code'/bin/code"
+fi
+
