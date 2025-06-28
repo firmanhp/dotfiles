@@ -8,12 +8,11 @@ FILES=(
     ".wslrc"
 )
 
-# Define the backup directory relative to the current script's location
-BACKUP_DIR="./backup"
-
 # Get the absolute path of the directory where the script is being executed
 # This ensures symlinks point to an absolute path, making them more robust.
 CURRENT_DIR=$(dirname "$(realpath $0)")
+# Define the backup directory relative to the current script's location
+BACKUP_DIR="${CURRENT_DIR}/backup"
 
 # --- Script Logic ---
 
