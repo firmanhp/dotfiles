@@ -1,0 +1,9 @@
+[/]
+edge-tiling-mode='adaptive'
+edge-tiling-offset=uint32 60
+inner-gaps=uint32 0
+outer-gaps=uint32 0
+quarter-tiling-threshold=uint32 20
+selected-layouts=[['Layout 4', '1750881']]
+top-edge-maximize=true
+window-use-custom-border-color=false
