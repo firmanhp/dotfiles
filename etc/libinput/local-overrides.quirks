@@ -1,0 +1,5 @@
+[Apple Magic Trackpad Palm Override]
+MatchName=*Magic Trackpad*
+# MatchBus=bluetooth
+AttrPalmSizeThreshold=850
+
