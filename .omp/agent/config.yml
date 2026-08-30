@@ -1,0 +1,9 @@
+symbolPreset: nerd
+composer: 
+  shape: box
+theme: 
+  dark: titanium
+  light: light
+setupVersion: 2
+defaultThinkingLevel: medium
+hideThinkingBlock: true

@@ -1,0 +1,45 @@
+providers:
+  myco:
+    baseUrl: http://ngiks-spark.lan:8888/v1
+    apiKey: notoken
+    api: openai-completions
+    auth: apiKey
+
+    models:
+      - id: qwen3.8-27b-sglang
+        name: Qwen3.8-27B
+        reasoning: true
+        input:
+          - text
+          - image
+
+        contextWindow: 262144
+        maxTokens: 81920
+
+        temperature: 1.0
+        topP: 0.95
+        topK: 20
+        minP: 0.0
+        presencePenalty: 0.0
+        repetitionPenalty: 1.0
+
+        compat:
+          thinkingFormat: qwen-chat-template
+          supportsReasoningEffort: true
+          reasoningEffortMap:
+            off: none
+            minimal: low
+            low: low
+            medium: medium
+            high: xhigh
+            xhigh: xhigh
+            max: xhigh
+          reasoningContentField: reasoning_content
+          qwenPreserveThinking: true
+
+        cost:
+          input: 3
+          output: 15
+          cacheRead: 0.3
+          cacheWrite: 3.75
+
